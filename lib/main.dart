@@ -39,8 +39,35 @@ class _DicePageState extends State<DicePage> {
     });
   }
 
-      _counter++;
-    });
+  String _getDiceImagePath() {
+    return 'assets/images/dice$_currentDiceValue.png';
+  }
+
+  Widget _buildDiceImage() {
+    return Container(
+      width: 256,
+      height: 257,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Image.asset(
+          _getDiceImagePath(),
+          width: 256,
+          height: 257,
+          fit: BoxFit.cover,
+      ),
+    );
+  }
   }
 
   @override
