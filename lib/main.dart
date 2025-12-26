@@ -65,6 +65,19 @@ class _DicePageState extends State<DicePage> {
           width: 256,
           height: 257,
           fit: BoxFit.cover,
+  Widget _buildRollButton() {
+    return ElevatedButton(
+      onPressed: _rollDice,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        elevation: 5,
+      ),
+      child: const Text(
+        'Roll Dice',
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
     );
   }
