@@ -65,6 +65,42 @@ class _DicePageState extends State<DicePage> {
           width: 256,
           height: 257,
           fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) => _buildErrorWidget(),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildErrorWidget() {
+    return Container(
+      width: 256,
+      height: 257,
+      color: Colors.red.shade200,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.error_outline, size: 48, color: Colors.red.shade700),
+            const SizedBox(height: 8),
+            Text(
+              'Dice $_currentDiceValue',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.red.shade700,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Image not found',
+              style: TextStyle(fontSize: 12, color: Colors.red.shade600),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildRollButton() {
     return ElevatedButton(
       onPressed: _rollDice,
@@ -81,6 +117,16 @@ class _DicePageState extends State<DicePage> {
       ),
     );
   }
+
+  Widget _buildValueDisplay() {
+    return Text(
+      'Current Value: $_currentDiceValue',
+      style: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+        color: Colors.grey.shade700,
+      ),
+    );
   }
 
   @override
