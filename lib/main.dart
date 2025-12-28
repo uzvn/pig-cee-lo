@@ -23,12 +23,15 @@ class PigCeeLo extends StatelessWidget {
 
 class DicePage extends StatefulWidget {
   const DicePage({super.key});
+// One Dice Game Page
+class OneDicePage extends StatefulWidget {
+  const OneDicePage({super.key});
 
   @override
-  State<DicePage> createState() => _DicePageState();
+  State<OneDicePage> createState() => _OneDicePageState();
 }
 
-class _DicePageState extends State<DicePage> {
+class _OneDicePageState extends State<OneDicePage> {
   int _currentDiceValue = 1;
   final Random _random = Random();
 
@@ -134,7 +137,7 @@ class _DicePageState extends State<DicePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Dice Game'),
+        title: const Text('1 Dice Game'),
         centerTitle: true,
       ),
       body: Center(
